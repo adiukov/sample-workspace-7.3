@@ -8,7 +8,13 @@ taglib uri="http://liferay.com/tld/theme" prefix="liferay-theme" %><%@
 taglib uri="http://liferay.com/tld/ui" prefix="liferay-ui" %>
 
 <%@ taglib prefix="liferay-security" uri="http://liferay.com/tld/security" %>
+<%@ taglib prefix="liferay-asset" uri="http://liferay.com/tld/asset" %>
+<%@ taglib prefix="liferay-comment" uri="http://liferay.com/tld/comment" %>
 
+<%@ page import="com.liferay.portal.kernel.util.ParamUtil" %>
+<%@ page import="com.liferay.portal.kernel.workflow.WorkflowConstants" %>
+<%@ page import="com.liferay.petra.string.StringUtil" %>
+<%@ page import="com.liferay.portal.kernel.util.Validator" %>
 <%@ page import="java.text.DateFormat" %>
 <%@ page import="com.liferay.portal.kernel.util.DateFormatFactoryUtil" %>
 <%@ page import="com.liferay.portal.kernel.util.PortalUtil" %>
