@@ -1,0 +1,4 @@
+Bundle-Name: pet-catalog-web
+Bundle-SymbolicName: ru.sample.pet.catalog.web
+Bundle-Version: 1.0.0
+Export-Package: ru.sample.pet.catalog.web.constants
