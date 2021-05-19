@@ -1,0 +1,78 @@
+<?xml version="1.0"?>
+<!DOCTYPE resource-action-mapping PUBLIC "-//Liferay//DTD Resource Action Mapping 7.0.0//EN" "http://www.liferay.com/dtd/liferay-resource-action-mapping_7_0_0.dtd">
+
+<resource-action-mapping>
+
+    <!--  Задаем права доступа к списку питомцев -->
+    <model-resource>
+		<model-name>ru.sample.pet.catalog</model-name>
+		<portlet-ref>
+			<portlet-name>ru_sample_pet_catalog_web_PetCatalogPortlet</portlet-name>
+		</portlet-ref>
+		<root>true</root>
+		<weight>1</weight>		
+		<permissions>
+			<!-- Тут переписляем все права, которые в принципе есть на списке - 
+				добавлять новой объект и назначать права доступа 
+			-->
+			<supports>			
+				<action-key>ADD_PET</action-key>
+				<action-key>PERMISSIONS</action-key>
+			</supports>
+			<!--  По умолчанию все участники сайта могут добавлять питомцев -->
+			<site-member-defaults>
+				<action-key>ADD_PET</action-key>
+			</site-member-defaults>
+			<guest-defaults />
+			<!--  Анонимные пользователи не могут делать ничего -->
+			<guest-unsupported>
+				<action-key>ADD_PET</action-key>
+				<action-key>PERMISSIONS</action-key>
+			</guest-unsupported>
+		</permissions>
+	</model-resource>
+	<!-- задаем  permissions для конкретного объекта -->
+    <model-resource>
+		<model-name>ru.sample.pet.catalog.model.Pet</model-name>
+		<portlet-ref>
+			<portlet-name>ru_sample_pet_catalog_web_PetCatalogPortlet</portlet-name>
+		</portlet-ref>
+		<permissions>
+			<!-- для него доступны штатные операции-разрешения -->
+			<supports>
+				<action-key>VIEW</action-key>
+				<action-key>UPDATE</action-key>
+				<action-key>DELETE</action-key>
+				<action-key>PERMISSIONS</action-key>
+				
+				<!-- Набор разрешений для работы с комментариями -->
+				<action-key>ADD_DISCUSSION</action-key>
+				<action-key>DELETE_DISCUSSION</action-key>
+				<action-key>UPDATE_DISCUSSION</action-key>
+				
+			</supports>
+			<!--  участник сайта может видеть объект по умолчанию -->
+			<site-member-defaults>
+				<action-key>VIEW</action-key>
+				
+				<action-key>ADD_DISCUSSION</action-key>
+			</site-member-defaults>
+			<!--  анонимный пользователь может видеть объект по умолчанию -->
+			<guest-defaults>
+				<action-key>VIEW</action-key>
+
+				<!-- Разрешим анонимным пользователям создавать комментарии -->
+				<action-key>ADD_DISCUSSION</action-key>
+			</guest-defaults>
+			<!-- остальные операции для анонимных пользователей не доступны -->
+			<guest-unsupported>
+				<action-key>UPDATE</action-key>
+				<action-key>DELETE</action-key>
+				<action-key>PERMISSIONS</action-key>
+				
+				<action-key>DELETE_DISCUSSION</action-key>
+				<action-key>UPDATE_DISCUSSION</action-key>
+			</guest-unsupported>
+		</permissions>
+	</model-resource>
+</resource-action-mapping>

@@ -45,10 +45,10 @@
 					<%-- Формируем url для просмотра детальной информации о питомце
                         windowsState - MAXIMIZED - пример того, как "раскрыть" портлет на всю страницу
                     --%>
-					<portlet:renderURL var="petURL" windowState="<%=WindowState.MAXIMIZED.toString() %>">
-						<portlet:param name="jspPage" value="<%= PetCatalogPortletKeys.VIEW_PET_JSP %>"/>
+					<liferay-portlet:renderURL var="petURL" windowState="<%=LiferayWindowState.MAXIMIZED.toString() %>">
+						<liferay-portlet:param name="mvcRenderCommandName" value="/pet/view"/>
 						<portlet:param name="<%= PetCatalogPortletKeys.PARAM_PET_ID %>" value="<%= String.valueOf(pet.getPetId()) %>" />
-					</portlet:renderURL>
+					</liferay-portlet:renderURL>
 
 					<%--   Формируем колонки - в простых случаях достаточно просто указания property или value --%>
 					<liferay-ui:search-container-column-text href="<%= petURL %>"
@@ -79,7 +79,7 @@
 								<%--Формируем ссылку на редактирование объекта - аналогично добавлению но так же указываем и ID редактируемого объекта --%>
 								<portlet:renderURL var="editPetURL">
 									<portlet:param name="<%= PetCatalogPortletKeys.PARAM_PET_ID %>" value="<%= String.valueOf(pet.getPetId()) %>" />
-									<portlet:param name="jspPage" value="<%= PetCatalogPortletKeys.EDIT_PET_JSP %>"/>
+									<portlet:param name="mvcRenderCommandName" value="/pet/edit"/>
 									<portlet:param name="<%= WebKeys.REDIRECT %>" value="<%= currentURL %>"/>
 								</portlet:renderURL>
 								<%-- Размещаем иконку редактирования --%>
@@ -134,7 +134,7 @@
 			<aui:button-row>
 				<c:if test="<%= PetCatalogPermission.contains(permissionChecker, themeDisplay.getScopeGroupId(), PetCatalogPermission.ACTION_ADD_PET) %>">
 					<portlet:renderURL var="addPetURL">
-						<portlet:param name="jspPage" value="<%= PetCatalogPortletKeys.EDIT_PET_JSP %>"/>
+						<portlet:param name="mvcRenderCommandName" value="/pet/edit"/>
 						<portlet:param name="<%= WebKeys.REDIRECT %>" value="<%= currentURL %>"/>
 					</portlet:renderURL>
 

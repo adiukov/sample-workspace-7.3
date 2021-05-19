@@ -5,14 +5,14 @@ String redirect = ParamUtil.getString(request, "redirect");
 
 Pet pet = (Pet)request.getAttribute(PetCatalogPortletKeys.PARAM_PET);
 %>
-<portlet:actionURL name="updatePet" var="updatePetURL"/>
+<liferay-portlet:actionURL name="/pet/update" var="updatePetURL"/>
 
 <liferay-ui:header title='<%= pet != null ? pet.getName() : "add-pet" %>' backURL="<%= redirect %>"/>
 
 	
 <aui:form method="post" action="<%= updatePetURL %>">
 	<aui:input type="hidden" name="<%= WebKeys.REDIRECT %>" value="<%= redirect %>"/>
-	<aui:input type="hidden" name="jspPage" value="<%= PetCatalogPortletKeys.EDIT_PET_JSP %>"/>
+	<%--<aui:input type="hidden" name="jspPage" value="<%= PetCatalogPortletKeys.EDIT_PET_JSP %>"/>--%>
 	
 	<c:if test="<%= pet != null %>">
 		<aui:input type="hidden" name="<%= PetCatalogPortletKeys.PARAM_PET_ID %>" value="<%= pet.getPetId() %>"/>

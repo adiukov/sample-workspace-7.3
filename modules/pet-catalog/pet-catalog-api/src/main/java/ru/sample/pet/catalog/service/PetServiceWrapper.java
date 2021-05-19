@@ -69,9 +69,6 @@ public class PetServiceWrapper
 		return _petService.countByUserStatus(userId, status);
 	}
 
-	/**
-	 * Удаляем объект
-	 */
 	@Override
 	public void deletePet(long petId)
 		throws com.liferay.portal.kernel.exception.PortalException {
@@ -112,6 +109,10 @@ public class PetServiceWrapper
 		return _petService.getByUser(userId, start, end);
 	}
 
+	/**
+	 * возращает объекты пользователя с заданным статусом если @param status
+	 * равен WorkflowConstants.STATUS_ANY - то работает как getByUser
+	 */
 	@Override
 	public java.util.List<ru.sample.pet.catalog.model.Pet> getByUserStatus(
 			long userId, int status, int start, int end)

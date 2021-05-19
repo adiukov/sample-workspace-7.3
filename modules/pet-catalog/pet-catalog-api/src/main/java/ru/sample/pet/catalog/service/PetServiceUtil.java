@@ -73,9 +73,6 @@ public class PetServiceUtil {
 		return getService().countByUserStatus(userId, status);
 	}
 
-	/**
-	 * Удаляем объект
-	 */
 	public static void deletePet(long petId)
 		throws com.liferay.portal.kernel.exception.PortalException {
 
@@ -112,6 +109,10 @@ public class PetServiceUtil {
 		return getService().getByUser(userId, start, end);
 	}
 
+	/**
+	 * возращает объекты пользователя с заданным статусом если @param status
+	 * равен WorkflowConstants.STATUS_ANY - то работает как getByUser
+	 */
 	public static java.util.List<ru.sample.pet.catalog.model.Pet>
 			getByUserStatus(long userId, int status, int start, int end)
 		throws com.liferay.portal.kernel.exception.PortalException {

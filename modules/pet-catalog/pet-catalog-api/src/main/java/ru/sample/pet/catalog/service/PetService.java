@@ -81,9 +81,6 @@ public interface PetService extends BaseService {
 	public int countByUserStatus(long userId, int status)
 		throws PortalException;
 
-	/**
-	 * Удаляем объект
-	 */
 	public void deletePet(long petId) throws PortalException;
 
 	/**
@@ -111,6 +108,10 @@ public interface PetService extends BaseService {
 	public List<Pet> getByUser(long userId, int start, int end)
 		throws PortalException;
 
+	/**
+	 * возращает объекты пользователя с заданным статусом если @param status
+	 * равен WorkflowConstants.STATUS_ANY - то работает как getByUser
+	 */
 	@AccessControlled(guestAccessEnabled = true)
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public List<Pet> getByUserStatus(
@@ -136,9 +137,6 @@ public interface PetService extends BaseService {
 	 */
 	public void movePetToTrash(long petId) throws PortalException;
 
-	/**
-	 * изменяем объект
-	 */
 	public void updatePet(Pet pet) throws PortalException;
 
 }

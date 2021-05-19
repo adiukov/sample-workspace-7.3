@@ -49,7 +49,6 @@ import com.liferay.portal.kernel.workflow.WorkflowHandlerRegistryUtil;
 import com.liferay.social.kernel.model.SocialActivityConstants;
 import com.liferay.trash.exception.RestoreEntryException;
 import com.liferay.trash.exception.TrashEntryException;
-import com.liferay.trash.kernel.model.TrashEntry;
 import org.osgi.service.component.annotations.Component;
 
 import ru.sample.pet.catalog.model.Pet;
@@ -307,9 +306,9 @@ public class PetLocalServiceImpl extends PetLocalServiceBaseImpl {
 					Pet.class.getName(), pet.getPetId());
 
 
-			// trash
-			trashEntryLocalService.deleteEntry(
-					Pet.class.getName(), pet.getPetId());
+			// trash TODO
+			/*trashEntryLocalServiceMy.deleteEntry(
+					Pet.class.getName(), pet.getPetId());*/
 
 			// Ratings
 			ratingsStatsLocalService.deleteStats(
@@ -486,8 +485,9 @@ public class PetLocalServiceImpl extends PetLocalServiceBaseImpl {
 				CommentManagerUtil.restoreDiscussionFromTrash(
 						Pet.class.getName(), petId);
 
-				trashEntryLocalService.deleteEntry(
-						Pet.class.getName(), petId);
+				// TODO
+				/*trashEntryLocalServiceMy.deleteEntry(
+						Pet.class.getName(), petId);*/
 			}
 
 		} else {
@@ -520,19 +520,19 @@ public class PetLocalServiceImpl extends PetLocalServiceBaseImpl {
 			if (status == WorkflowConstants.STATUS_IN_TRASH) {
 				CommentManagerUtil.moveDiscussionToTrash(
 						Pet.class.getName(), petId);
-
-				trashEntryLocalService.addTrashEntry(
+				//TODO
+				/*trashEntryLocalServiceMy.addTrashEntry(
 						userId, pet.getGroupId(), Pet.class.getName(),
 						pet.getPetId(), pet.getUuid(), null, oldStatus, null,
-						null);
+						null);*/
 			}
 			else if (oldStatus == WorkflowConstants.STATUS_IN_TRASH) {
 				CommentManagerUtil.restoreDiscussionFromTrash(
 						Pet.class.getName(), petId);
 
-
-				trashEntryLocalService.deleteEntry(
-						Pet.class.getName(), petId);
+				//TODO
+				/*trashEntryLocalServiceMy.deleteEntry(
+						Pet.class.getName(), petId);*/
 			}
 
 		}
@@ -621,10 +621,11 @@ public class PetLocalServiceImpl extends PetLocalServiceBaseImpl {
 					RestoreEntryException.INVALID_STATUS);
 		}
 
-		TrashEntry trashEntry = trashEntryLocalService.getEntry(
-				Pet.class.getName(), petId);
+		//TODO
+		/*TrashEntry trashEntry = trashEntryLocalServiceMy.getEntry(
+				Pet.class.getName(), petId);*/
 
-		pet = updateStatus(userId, petId, trashEntry.getStatus(),
+		pet = updateStatus(userId, petId, pet.getStatus(),
 				new ServiceContext(),
 				new HashMap<String, Serializable>());
 
@@ -702,7 +703,8 @@ public class PetLocalServiceImpl extends PetLocalServiceBaseImpl {
 			long userId, Pet pet, ServiceContext serviceContext)
 			throws PortalException {
 
-		Map<String, Serializable> workflowContext = new HashMap<String, Serializable>();
+		//TODO
+		/*Map<String, Serializable> workflowContext = new HashMap<String, Serializable>();
 
 		workflowContext.put(
 				WorkflowConstants.CONTEXT_URL, getPetURL(pet, serviceContext));
@@ -725,6 +727,7 @@ public class PetLocalServiceImpl extends PetLocalServiceBaseImpl {
 		return WorkflowHandlerRegistryUtil.startWorkflowInstance(
 				pet.getCompanyId(), pet.getGroupId(), userId,
 				Pet.class.getName(), pet.getPetId(), pet,
-				serviceContext, workflowContext);
+				serviceContext, workflowContext);*/
+	 	return pet;
 	}
 }

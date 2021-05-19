@@ -21,9 +21,13 @@ import com.liferay.portal.kernel.security.access.control.AccessControlled;
 import com.liferay.portal.kernel.security.permission.ActionKeys;
 import com.liferay.portal.kernel.util.ListUtil;
 import com.liferay.portal.kernel.workflow.WorkflowConstants;
+import com.liferay.trash.service.TrashEntryLocalService;
+import com.liferay.trash.service.TrashEntryService;
 import org.osgi.service.component.annotations.Component;
 
+import org.osgi.service.component.annotations.Reference;
 import ru.sample.pet.catalog.model.Pet;
+import ru.sample.pet.catalog.service.PetLocalService;
 import ru.sample.pet.catalog.service.base.PetServiceBaseImpl;
 import ru.sample.pet.catalog.service.permission.PetPermission;
 

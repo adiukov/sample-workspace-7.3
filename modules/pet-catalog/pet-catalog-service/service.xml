@@ -86,6 +86,7 @@
 		<reference entity="AssetLink" package-path="com.liferay.portlet.asset" />
 		<reference entity="ExpandoRow" package-path="com.liferay.portlet.expando" />
 		<reference entity="RatingsStats" package-path="com.liferay.portlet.ratings" />
-		<reference entity="TrashEntry" package-path="com.liferay.portlet.trash" />
+		<!--TODO-->
+		<!--<reference entity="TrashEntry" package-path="com.liferay.portlet.trash" />-->
 	</entity>
 </service-builder>

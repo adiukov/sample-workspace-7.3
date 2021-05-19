@@ -26,7 +26,7 @@ public class PetCatalogPermission extends BaseResourcePermissionChecker {
      * resource-actions/pet-catalog-actions.xml
      *
      */
-    public static final String RESOURCE_NAME = "ru.emdev.samples.petcatalog";
+    public static final String RESOURCE_NAME = "ru.sample.pet.catalog";
 
     public static final String ACTION_ADD_PET = "ADD_PET";
 

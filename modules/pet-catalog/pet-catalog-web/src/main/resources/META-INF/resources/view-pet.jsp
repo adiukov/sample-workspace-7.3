@@ -2,14 +2,18 @@
 
 <%
 String redirect = ParamUtil.getString(request, "redirect");
-Pet pet = (Pet)request.getAttribute(PetCatalogPortletKeys.PARAM_PET);
+if (Validator.isNotNull(redirect)) {
+	portletDisplay.setShowBackIcon(true);
+	portletDisplay.setURLBack(redirect);
+}
+Pet pet = (Pet) request.getAttribute(PetCatalogPortletKeys.PARAM_PET);
 
 pet = pet.toEscapedModel();
 %>
 <c:if test="<%= pet != null %>">
 	<liferay-ui:header title="<%= pet.getName() %>" />
 	<aui:workflow-status id="<%= String.valueOf(pet.getPetId()) %>" status="<%= pet.getStatus() %>" />
-	
+
 	<aui:fieldset>
 		<aui:field-wrapper first="true" label="name">
 			<%= pet.getName() %>
