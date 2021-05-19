@@ -1,0 +1,10 @@
+Bundle-Name: pet-catalog-api
+Bundle-SymbolicName: ru.sample.pet.catalog.api
+Bundle-Version: 1.0.0
+Export-Package:\
+	ru.sample.pet.catalog.exception,\
+	ru.sample.pet.catalog.model,\
+	ru.sample.pet.catalog.service,\
+	ru.sample.pet.catalog.service.persistence
+-check: EXPORTS
+-includeresource: META-INF/service.xml=../pet-catalog-service/service.xml

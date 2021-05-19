@@ -1,0 +1,17 @@
+dependencies {
+	compileOnly group: "com.liferay", name: "com.liferay.petra.io", version: "4.0.2"
+	compileOnly group: "com.liferay", name: "com.liferay.petra.lang", version: "4.0.1"
+	compileOnly group: "com.liferay", name: "com.liferay.petra.string", version: "4.0.1"
+	compileOnly group: "com.liferay", name: "com.liferay.portal.aop.api", version: "2.0.0"
+	compileOnly group: "com.liferay.portal", name: "com.liferay.portal.kernel", version: "5.4.0"
+	compileOnly group: "org.osgi", name: "org.osgi.annotation.versioning", version: "1.1.0"
+	compileOnly group: "org.osgi", name: "org.osgi.core", version: "6.0.0"
+	compileOnly group: "org.osgi", name: "org.osgi.service.component.annotations", version: "1.3.0"
+	compileOnly project(":modules:pet-catalog:pet-catalog-api")
+}
+
+buildService {
+	apiDir = "../pet-catalog-api/src/main/java"
+}
+
+group = "ru.sample.pet.catalog"
