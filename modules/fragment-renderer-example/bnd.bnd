@@ -1,0 +1,4 @@
+Bundle-SymbolicName: ru.sample.fragment.renderer.example
+Bundle-Version: 1.0.0
+Web-ContextPath: /fragment-renderer-example
+-dsannotations-options: inherit
