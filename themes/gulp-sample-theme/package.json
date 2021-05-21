@@ -6,7 +6,7 @@
 		"liferay-theme"
 	],
 	"liferayTheme": {
-		"baseTheme": "classic",
+		"baseTheme": "styled",
 		"fontAwesome": true,
 		"screenshot": "",
 		"templateLanguage": "ftl",
@@ -18,7 +18,6 @@
 		"liferay-frontend-common-css": "1.0.4",
 		"liferay-frontend-theme-styled": "5.0.15",
 		"liferay-frontend-theme-unstyled": "5.0.20",
-		"liferay-classic-theme": "5.0.0",
 		"liferay-theme-tasks": "^10.4.0",
 		"liferay-font-awesome": "3.4.0"
 	},
